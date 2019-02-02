@@ -1,0 +1,25 @@
+{
+  "name": "asttodot",
+  "version": "0.4.0",
+  "description": "export an (graphviz) AST to a (graphviz) dot file.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "graphviz",
+    "dot",
+    "generate"
+  ],
+  "author": "Duarte TERENCIO",
+  "license": "MIT",
+  "dependencies": {
+    "dataobject-parser": "^1.2.1",
+    "dotparser": "^0.4.0",
+    "min-dash": "^3.4.0"
+  }
+}
