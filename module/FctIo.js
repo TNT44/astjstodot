@@ -27,6 +27,14 @@ FctIo.prototype.chargefichiergz = function(nom = "") {
 FctIo.prototype.figeast = function(monast) {
   var fichiersortietxt = path.join(__dirname, '..', 'travaux', this.nomfichier +
     '.json');
+
+  if (fs.existsSync(fichiersortietxt)) {
+    fs.unlink(fichiersortietxt, (err) => {
+      if (err) throw err;
+      console.log('successfully deleted');
+    });
+  }
+
   fs.writeFile(fichiersortietxt, JSON.stringify(monast, null, 4), (err) => {
     if (err) {
       console.error(err);
@@ -43,6 +51,13 @@ FctIo.prototype.figeast = function(monast) {
 FctIo.prototype.figeresultat = function(res) {
   var fichiergensortie = path.join(__dirname, '..', 'travaux', this.nomfichier +
     '.generer.dot');
+
+  if (fs.existsSync(fichiergensortie)) {
+    fs.unlink(fichiergensortie, (err) => {
+      if (err) throw err;
+      console.log('successfully deleted');
+    });
+  }
 
   fs.writeFile(fichiergensortie, res.toString(), function(err) {
     if (err) {
@@ -61,6 +76,14 @@ FctIo.prototype.figeresultat = function(res) {
 FctIo.prototype.figeNouveauAst = function(astreproduit) {
   var fichierastreconstruitsortie = path.join(__dirname, '..', 'travaux',
     this.nomfichier + '.reconstruit.json');
+
+  if (fs.existsSync(fichierastreconstruitsortie)) {
+    fs.unlink(fichierastreconstruitsortie, (err) => {
+      if (err) throw err;
+      console.log('successfully deleted');
+    });
+  }
+
   fs.writeFile(fichierastreconstruitsortie, JSON.stringify(astreproduit, null,
     4), (err) => {
     if (err) {
@@ -94,6 +117,14 @@ FctIo.prototype.afficheDeuxAst = function(flatast, flatastproduit) {
 FctIo.prototype.sauveDeuxAst = function(flatast, flatastproduit) {
   var fichierasttranspose = path.join(__dirname, '..', 'travaux', this.nomfichier +
     '.un.json');
+
+  if (fs.existsSync(fichierasttranspose)) {
+    fs.unlink(fichierasttranspose, (err) => {
+      if (err) throw err;
+      console.log('successfully deleted');
+    });
+  }
+
   fs.writeFile(fichierasttranspose, JSON.stringify(flatast, null, 4), (err) => {
     if (err) {
       console.error(err);
@@ -104,6 +135,14 @@ FctIo.prototype.sauveDeuxAst = function(flatast, flatastproduit) {
 
   var fichierasttransposegen = path.join(__dirname, '..', 'travaux', this.nomfichier +
     '.deux.json');
+
+  if (fs.existsSync(fichierasttransposegen)) {
+    fs.unlink(fichierasttransposegen, (err) => {
+      if (err) throw err;
+      console.log('successfully deleted');
+    });
+  }
+
   fs.writeFile(fichierasttransposegen, JSON.stringify(flatastproduit, null, 4), (
     err) => {
     if (err) {

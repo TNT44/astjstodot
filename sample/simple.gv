@@ -1,0 +1,12 @@
+strict digraph {
+    a [shape="ellipse" style="filled" fillcolor="#1f77b4"]
+    b [shape="polygon" style="filled" fillcolor="#ff7f0e"]
+    c [shape="polygon" style="filled" fillcolor="#ff7f0e"]
+    d [shape="ellipse" style="filled" fillcolor="#ff7f0e"]
+    e [shape="polygon" style="filled" fillcolor="#ff7f0e"]
+    a -> b [fillcolor="#a6cee3" color="#1f78b4"]
+    a -> c [fillcolor="#a6cee3" color="#1f78b4"]
+    c -> d [fillcolor="#a6cee3" color="#1f78b4"]
+    d -> e [fillcolor="#a6cee3" color="#1f78b4"]
+    b -> e [fillcolor="#a6cee3" color="#1f78b4"]
+}
