@@ -4,6 +4,10 @@ Je cherche a splitter la fonction isEqual en sous fonction
 a diminuer la complexité de la fonction isEqual
 a surcharger la comparaison de valeur ..
 pour avoir un "8" = 8.
+
+
+Version 1.0.0 du 06/05/2019
+
 */
 
 
@@ -13,8 +17,8 @@ pour avoir un "8" = 8.
  * @returns {String} la value type.
  */
 var getValueType = function(structure) {
-  return Object.prototype.toString.call(structure);
-}
+    return Object.prototype.toString.call(structure);
+};
 
 /**
  * compare la value type de 2 structures.
@@ -23,14 +27,14 @@ var getValueType = function(structure) {
  */
 var isSameType = function(value, other) {
 
-  // Get the value type
-  var type = getValueType(value);
+    // Get the value type
+    var type = getValueType(value);
 
-  // If the two objects are not the same type, return false
-  if (type !== getValueType(other)) return false;
+    // If the two objects are not the same type, return false
+    if (type !== getValueType(other)) return false;
 
-  return true;
-}
+    return true;
+};
 
 /**
  * calcule la taille de la structure.
@@ -38,13 +42,13 @@ var isSameType = function(value, other) {
  * @returns {int} la taille de structure.
  */
 var getlength = function(structure) {
-  var type = getValueType(structure);
-  if (type === '[object Array]') {
-    return structure.length;
-  } else {
-    return Object.keys(structure).length;
-  }
-}
+    var type = getValueType(structure);
+    if (type === "[object Array]") {
+        return structure.length;
+    } else {
+        return Object.keys(structure).length;
+    }
+};
 
 /**
  *  Compare two items.
@@ -54,82 +58,82 @@ var getlength = function(structure) {
  */
 var compare = function(item1, item2) {
 
-  // Get the object type
-  var itemType = getValueType(item1);
+    // Get the object type
+    var itemType = getValueType(item1);
 
-  // If an object or array, compare recursively
-  if (['[object Array]', '[object Object]'].indexOf(itemType) >= 0) {
-    if (!isEqualDU(item1, item2)) return false;
-  } else {
+    // If an object or array, compare recursively
+    if (["[object Array]", "[object Object]"].indexOf(itemType) >= 0) {
+        if (!isEqualDU(item1, item2)) return false;
+    } else {
     // Otherwise, do a simple comparison
     // If the two items are not the same type, return false
-    if (itemType !== getValueType(item2)) {
-      console.log("----- comparaison d'item type -----");
-      console.log("item2 =", item2);
-      console.log("itemType item1 =", getValueType(item1));
-      console.log("itemType item2 =", getValueType(item2));
+        if (itemType !== getValueType(item2)) {
+            console.log("----- comparaison d'item type -----");
+            console.log("item2 =", item2);
+            console.log("itemType item1 =", getValueType(item1));
+            console.log("itemType item2 =", getValueType(item2));
 
-      var item1str = "" + item1;
-      var item2str = "" + item2;
-      if (item2str == item1str) {
-        console.log("-->identique");
-        return true;
-      }
+            var item1str = "" + item1;
+            var item2str = "" + item2;
+            if (item2str == item1str) {
+                console.log("-->identique");
+                return true;
+            }
 
-      return false;
+            return false;
+        }
+        // Else if it's a function, convert to a string and compare
+        // Otherwise, just compare
+        if (itemType === "[object Function]") {
+            if (item1.toString() !== item2.toString()) return false;
+        } else {
+            if (item1 !== item2) {
+                console.log("----- difference -----");
+                console.log("item1 =", item1);
+                console.log("item2 =", item2);
+                return false;
+            }
+        }
+
     }
-    // Else if it's a function, convert to a string and compare
-    // Otherwise, just compare
-    if (itemType === '[object Function]') {
-      if (item1.toString() !== item2.toString()) return false;
-    } else {
-      if (item1 !== item2) {
-        console.log("----- difference -----");
-        console.log("item1 =", item1);
-        console.log("item2 =", item2);
-        return false;
-      }
-    }
-
-  }
-  return true;
+    return true;
 };
 
 
 var isEqualDU = function(value, other) {
 
-  console.log("----- isEqualDU -----");
-  // Get the value type
-  var type = getValueType(value);
+    console.log("----- isEqualDU -----");
+    // Get the value type
+    var type = getValueType(value);
 
-  // If the two objects are not the same type, return false
-  if (type !== getValueType(other)) return false;
+    // If the two objects are not the same type, return false
+    if (type !== getValueType(other)) return false;
 
-  // If items are not an object or array, return false
-  if (['[object Array]', '[object Object]'].indexOf(type) < 0) return false;
+    // If items are not an object or array, return false
+    if (["[object Array]", "[object Object]"].indexOf(type) < 0) return false;
 
-  // Compare the length of the length of the two items
-  var valueLen = getlength(value);
-  var otherLen = getlength(other);
-  if (valueLen !== otherLen) return false;
+    // Compare the length of the length of the two items
+    var valueLen = getlength(value);
+    var otherLen = getlength(other);
+    if (valueLen !== otherLen) return false;
 
 
 
-  // Compare properties
-  if (type === '[object Array]') {
-    for (var i = 0; i < valueLen; i++) {
-      if (compare(value[i], other[i]) === false) return false;
+    // Compare properties
+    if (type === "[object Array]") {
+        for (var i = 0; i < valueLen; i++) {
+            if (compare(value[i], other[i]) === false) return false;
+        }
+    } else {
+        for (var key in value) {
+            if (value.hasOwnProperty(key)) {
+                if (compare(value[key], other[key]) === false) return false;
+            }
+        }
     }
-  } else {
-    for (var key in value) {
-      if (value.hasOwnProperty(key)) {
-        if (compare(value[key], other[key]) === false) return false;
-      }
-    }
-  }
 
-  // If nothing failed, return true
-  return true;
+    // If nothing failed, return true
+    return true;
 
 };
 // ----------------------------------------------------
@@ -138,72 +142,72 @@ var isEqualDU = function(value, other) {
 
 var isEqual = function(value, other) {
 
-  // Get the value type
-  var type = Object.prototype.toString.call(value);
+    // Get the value type
+    var type = Object.prototype.toString.call(value);
 
-  // If the two objects are not the same type, return false
-  if (type !== Object.prototype.toString.call(other)) return false;
+    // If the two objects are not the same type, return false
+    if (type !== Object.prototype.toString.call(other)) return false;
 
-  // If items are not an object or array, return false
-  if (['[object Array]', '[object Object]'].indexOf(type) < 0) return false;
+    // If items are not an object or array, return false
+    if (["[object Array]", "[object Object]"].indexOf(type) < 0) return false;
 
-  // Compare the length of the length of the two items
-  var valueLen = type === '[object Array]' ? value.length : Object.keys(value)
-    .length;
-  var otherLen = type === '[object Array]' ? other.length : Object.keys(other)
-    .length;
-  if (valueLen !== otherLen) return false;
+    // Compare the length of the length of the two items
+    var valueLen = type === "[object Array]" ? value.length : Object.keys(value)
+        .length;
+    var otherLen = type === "[object Array]" ? other.length : Object.keys(other)
+        .length;
+    if (valueLen !== otherLen) return false;
 
-  // Compare two items
-  var compare = function(item1, item2) {
+    // Compare two items
+    var compare = function(item1, item2) {
 
-    // Get the object type
-    var itemType = Object.prototype.toString.call(item1);
+        // Get the object type
+        var itemType = Object.prototype.toString.call(item1);
 
-    // If an object or array, compare recursively
-    if (['[object Array]', '[object Object]'].indexOf(itemType) >= 0) {
-      if (!isEqual(item1, item2)) return false;
+        // If an object or array, compare recursively
+        if (["[object Array]", "[object Object]"].indexOf(itemType) >= 0) {
+            if (!isEqual(item1, item2)) return false;
+        }
+
+        // Otherwise, do a simple comparison
+        else {
+
+            // If the two items are not the same type, return false
+            if (itemType !== Object.prototype.toString.call(item2)) return false;
+
+            // Else if it's a function, convert to a string and compare
+            // Otherwise, just compare
+            if (itemType === "[object Function]") {
+                if (item1.toString() !== item2.toString()) return false;
+            } else {
+                if (item1 !== item2) return false;
+            }
+
+        }
+    };
+
+    // Compare properties
+    if (type === "[object Array]") {
+        for (var i = 0; i < valueLen; i++) {
+            if (compare(value[i], other[i]) === false) return false;
+        }
+    } else {
+        for (var key in value) {
+            if (value.hasOwnProperty(key)) {
+                if (compare(value[key], other[key]) === false) return false;
+            }
+        }
     }
 
-    // Otherwise, do a simple comparison
-    else {
-
-      // If the two items are not the same type, return false
-      if (itemType !== Object.prototype.toString.call(item2)) return false;
-
-      // Else if it's a function, convert to a string and compare
-      // Otherwise, just compare
-      if (itemType === '[object Function]') {
-        if (item1.toString() !== item2.toString()) return false;
-      } else {
-        if (item1 !== item2) return false;
-      }
-
-    }
-  };
-
-  // Compare properties
-  if (type === '[object Array]') {
-    for (var i = 0; i < valueLen; i++) {
-      if (compare(value[i], other[i]) === false) return false;
-    }
-  } else {
-    for (var key in value) {
-      if (value.hasOwnProperty(key)) {
-        if (compare(value[key], other[key]) === false) return false;
-      }
-    }
-  }
-
-  // If nothing failed, return true
-  return true;
+    // If nothing failed, return true
+    return true;
 
 };
 
 //module.exports = isEqual;
 
 module.exports = {
-  isEqual: isEqual,
-  isEqualDU: isEqualDU
+    isEqual: isEqual,
+    isEqualDU: isEqualDU
 
-}
+};
