@@ -21,8 +21,11 @@ I take many representative .dot file.
 
 Now, i try to 
 * add new function in the AST tree.
+
 ** remove a node
+
 ** add a node
+
 * add interractive svg function
 * improve the graphviz table parse.
 
@@ -31,12 +34,16 @@ Now, i try to
 Release
 -----------------
 
-22/08/2019
+**22/08/2019**
+
 Release 0.4.1
+
 Improve tests
+
 Add documentation
 
-06/02/2019
+**06/02/2019**
+
 First release 0.4.0
 
 Test
