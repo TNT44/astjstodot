@@ -29,7 +29,7 @@ Now, i try to
 * add interractive svg function
 * improve the graphviz table parse.
 
-![The road](./documentation/chaine.png)
+![The road](./documentation/Chaine.png)
 
 Release
 -----------------
@@ -38,9 +38,7 @@ Release
 
 Release 0.4.1
 
-Improve tests
-
-Add documentation
+Improve tests and documentation
 
 **06/02/2019**
 
@@ -48,6 +46,6 @@ First release 0.4.0
 
 Test
 -----------------
-You need to use jasmine
+You need use jasmine
 in the root :
 >jasmine
