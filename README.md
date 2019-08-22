@@ -9,8 +9,12 @@ I build a program witch revert the processus.
 You create a new .dot file from the AST tree.
 
 To do a good job :
+
 The challenge is to parse a dot file, create an AST tree and build the .dot file again from the AST tree.
 I compare the primary .dot file with the new one.
+
+I take many representative .dot file.
+
 
 ![Process of test](./documentation/description3.png)
 
@@ -22,7 +26,7 @@ Now, i try to
 * add interractive svg function
 * improve the graphviz table parse.
 
-![Improve Process](./documentation/chaine.png)
+![The road](./documentation/chaine.png)
 
 Release
 -----------------
