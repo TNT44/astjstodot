@@ -1,0 +1,15 @@
+Date : 13/03/2020
+NomProjet:ast2dot
+Description:
+Convert graphviz AST to DOT.
+
+When you use Graphviz you create a .dot file or a .gz file.
+You can parse a .dot file, a .gz file to an AST tree with 
+[avanka dotparser](https://github.com/anvaka/dotparser).
+
+The AST tree can be modified with javascript's function, like add a node.
+
+I build a program to revert the process.
+I create a new .dot file from an AST tree.
+
+Evolution:

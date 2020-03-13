@@ -10,3 +10,5 @@ node_modules/
 jspm_packages/
 
 travaux/
+.nyc_output/
+coverage/

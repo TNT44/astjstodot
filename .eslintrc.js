@@ -1,6 +1,8 @@
 module.exports = {
   "env": {
-    "node": true
+    "commonjs": true,
+    "node": true,
+    "mocha": true
   },
   "extends": "eslint:recommended",
   "parserOptions": {
