@@ -1,4 +1,4 @@
-var fctarray = require('../src/module/fctArray');
+var fctarray = require('./module/fctArray');
 
 var assert = require('chai').assert;
 //var DataObjectParser = require('dataobject-parser');

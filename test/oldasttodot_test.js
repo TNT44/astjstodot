@@ -1,6 +1,6 @@
 
 var assert = require("chai").assert;
-var AstToDot = require('./../src/module/AstToDot');
+var AstToDot = require('./../src/AstToDot');
 var fixtures = require('./fixtures');
 var dash = require("min-dash");
 

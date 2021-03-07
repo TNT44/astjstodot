@@ -1,7 +1,7 @@
 //var StringBuilder = require('../src/moduleStringBuilder');
-var FctIo = require('../src/module/FctIo');
-var AstToDot = require('../src/module/AstToDot');
-var fctarray = require('../src/module/fctArray');
+var FctIo = require('./module/FctIo');
+var AstToDot = require('../src/AstToDot');
+var fctarray = require('./module/fctArray');
 
 var parse = require('dotparser');
 var DataObjectParser = require('dataobject-parser');

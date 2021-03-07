@@ -1,8 +1,9 @@
 var dash = require("min-dash");
-var StringBuilder = require("./StringBuilder");
+var StringBuilder = require("./module/StringBuilder");
 
 /**
 Version 1.0.0 du 06/05/2019
+Version 1.0.1 du 07/03/2021
 */
 
 function AstToDot() {
@@ -16,8 +17,8 @@ function AstToDot() {
    *    "eq": "LR"
    *  };
    */
-
 }
+
 
 /**
  * construit un graph.
@@ -77,7 +78,7 @@ generegraph = function(unfichierast, nbtab = 0) {
  * @param {String} fin - La fin de la ligne.
  * @returns {String} resultat de la génération.
  */
-genereattr = function(enreg, nbtab, fin = "\n") {
+cgenereattr = function(enreg, nbtab, fin = "\n") {
     var sb = new StringBuilder();
 
     if (dash.has(enreg, "type")) {
@@ -413,7 +414,8 @@ genparenth = function(str, fin = " ") {
     return sb.toString();
 };
 
-module.exports = AstToDot;
+
+//module.exports = AstToDot;
 
 module.exports = {
     AstToDot: AstToDot,

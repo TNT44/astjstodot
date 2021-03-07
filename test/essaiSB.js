@@ -1,4 +1,4 @@
-var StringBuilder = require("../module/StringBuilder.js");
+var StringBuilder = require("../src/module/StringBuilder.js");
 var performance = require("perf_hooks").performance;
 
 var sb = new StringBuilder();
