@@ -22,11 +22,24 @@ exports.attrstmt = {
   }]
 };
 
+exports.edgestmtsansattr =     {
+  "type": "edge_stmt",
+  "edge_list": [{
+      "type": "node_id",
+      "id": "a"
+    },
+    {
+      "type": "node_id",
+      "id": "b"
+    }
+  ]
+};
+
 exports.simple = {
   "type": "digraph",
   "children": [{
       "type": "node_stmt",
-      "node_id": {
+      "node_id":{
         "type": "node_id",
         "id": "a"
       },
@@ -275,6 +288,40 @@ exports.edgestmt = {
     "eq": "e,237,215.25 126.4,180.87 155.89,190.04 195.69,202.41 227.11,212.18"
   }]
 };
+
+exports.nodestmt = {
+  "type": "node_stmt",
+  "node_id": {
+    "type": "node_id",
+    "id": "e"
+  },
+  "attr_list": [{
+      "type": "attr",
+      "id": "shape",
+      "eq": "polygon"
+    },
+    {
+      "type": "attr",
+      "id": "style",
+      "eq": "filled"
+    },
+    {
+      "type": "attr",
+      "id": "fillcolor",
+      "eq": "#ff7f0e"
+    }
+  ]
+};
+
+exports.nodestmtsansattr = {
+  "type": "node_stmt",
+  "node_id": {
+    "type": "node_id",
+    "id": "e"
+  }
+};
+
+
 
 exports.full = [{
   "type": "digraph",

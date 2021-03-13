@@ -9,29 +9,8 @@ var assert = require("chai").assert;
 
 
 var unitTests = [
-  "advanced.gv", 
-  "DAF1.gv", 
-  "nonoriente.gv",
-  "notcrossing.gv",
-  "compound.gv",
-  "rank.gv",
-  "fancy.gv",
-  "graphstructure.gv",
-  "hashtable.gv",
-  "simple.gv",
-  "advanced.gv",
-  'nonhtml.gv',
-  'polygon.gv',
-  "subgraph.gv",
-  "simple.gv",
-  "prune.gv",
-  "process.gv",
-  "polygon2.gv",
-  "multi.gv",
-  "hashtable.gv",
-  "html1.gv",
-  "simplehtml.gv",
-  "stricttable.gv"
+  "complexe/complexeport.gv",
+  "complexe/complexelink.gv"
 ];
 
 

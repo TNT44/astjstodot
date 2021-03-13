@@ -3,7 +3,7 @@
 
 var assert = require("chai").assert;
 
-var unitTests = {"unitTests": [{"input": "1.foo"},{"input": "4.foo"},{"input": "3.foo"},{"input": "2.foo"}]}
+var unitTests = {"unitTests": [{"input": "1.foo"},{"input": "4.foo"},{"input": "3.foo"},{"input": "2.foo"}]};
 
 function doStuff(test) {
   console.log("did stuff with " + test.input);

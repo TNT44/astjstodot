@@ -1,0 +1,70 @@
+digraph G {
+
+graph [splines=ortho, nodesep=0.8]
+edge [color=dark, splines="ortho"];
+
+a1 [shape=note,color=lightblue,style=filled, label="fichier gz"];
+b1 [shape=box,sides=4,skew=.4,label="DOTPARSE"]
+c1 [shape=octagon,color=grey,style=filled ,label="AST"]
+
+
+ d1 [shape="box",color="green",style="filled" ,label="AST2DOT"]
+ e1 [shape="note",label="mon fichier GZ"]
+
+ f1 [shape=box,sides=4,skew=.4,label="DOTPARSE"]
+ g1 [shape=octagon,sides=4,skew=.4,label="AST2"]
+
+ h1 [shape=box,sides=4,skew=.4,label="TOFLAT"]
+ i1 [shape=note,sides=4,skew=.4,label="fichier FLAT"]
+
+
+j1 [shape=box,sides=4,skew=.4,label="TOFLAT"]
+ k1 [shape=note,sides=4,skew=.4,label="fichier FLAT2"]
+
+l1 [label="compare"]
+
+m1 [label="resultat"]
+
+subgraph cluster1 { 
+
+graph [style=""]; 
+a1 -> b1; 
+label = "1) Parse sample"; 
+} 
+
+subgraph cluster3 { 
+ 
+  label = "2) Generation + parse"; 
+ color=blue 
+ d1 -> e1;
+ e1 -> f1; 
+
+} 
+
+
+subgraph cluster6 { 
+node [style=filled]; 
+c1;
+g1;
+} 
+
+subgraph cluster4 { 
+node [style=filled]; 
+label = "3) Comparer"; 
+color=blue;
+h1 -> i1;
+j1 -> k1;
+k1 -> l1;
+i1 -> l1;
+l1 -> m1;
+} 
+
+
+f1 -> g1;
+b1 -> c1  [ splines="ortho"];
+c1 -> d1 [ color="red", penwidth=3, label=" tester AST2DOT"]
+
+c1 -> h1;
+g1 -> j1;
+
+}

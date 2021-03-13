@@ -1,6 +1,6 @@
 //var StringBuilder = require('../src/moduleStringBuilder');
 var FctIo = require('./module/FctIo');
-var AstToDot = require('../src/AstToDot');
+var AstJsToDot = require('../src/AstJsToDot');
 var fctarray = require('./module/fctArray');
 
 var parse = require('dotparser');
@@ -28,7 +28,11 @@ describe('test genération: ', function() {
 
     var flatast = DataObjectParser.untranspose(theast);
 
-    var res = AstToDot.generegraph(theast, 0);
+    //var dep =  AstJsToDot;
+    //console.dir(dep);
+    
+
+    var res =  AstJsToDot.generegraph(theast, 0);
     if (debug) {
       versIO.figeresultat(res);
     }

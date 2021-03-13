@@ -1,6 +1,6 @@
 
 var assert = require("chai").assert;
-var AstToDot = require('./../src/AstToDot');
+var AstJsToDot = require('./../src/AstJsToDot');
 var fixtures = require('./fixtures');
 var dash = require("min-dash");
 
@@ -9,7 +9,7 @@ describe('runTests', function() {
 
         var tabmm = fixtures.attr;
     
-        var res = AstToDot.genereattr(tabmm, 0);
+        var res = AstJsToDot.genereattr(tabmm, 0);
     
         assert.isTrue(dash.has(tabmm, 'type'));
     
@@ -22,8 +22,8 @@ describe('runTests', function() {
         //console.log(tabmm);
         //console.log("-------------------------------------------------");
     
-        //  var asto = new AstToDot(tabmm);
-        var res = AstToDot.genereattr(tabmm);
+        //  var asto = new AstJsToDot(tabmm);
+        var res = AstJsToDot.genereattr(tabmm);
     
         assert.isTrue(dash.has(tabmm, 'type'));
     
@@ -43,7 +43,7 @@ describe('runTests', function() {
     
         assert.isTrue(dash.has(attrstmt, 'type'));
     
-        var res = AstToDot.genereattrstmt(attrstmt);
+        var res = AstJsToDot.genereattrstmt(attrstmt);
         console.dir("t3 =" + res);
       });
     
@@ -67,7 +67,7 @@ describe('runTests', function() {
     
         assert.isTrue(dash.has(edgestmt, 'type'));
     
-        var res = AstToDot.genereedgestmt(edgestmt);
+        var res = AstJsToDot.genereedgestmt(edgestmt);
         console.dir("t4 =" + res);
     
         var toto = res.normalize("NFC");
@@ -78,7 +78,7 @@ describe('runTests', function() {
         var simple = fixtures.simple;
         assert.isTrue(dash.has(simple, 'type'));
     
-        var res = AstToDot.generegraph(simple);
+        var res = AstJsToDot.generegraph(simple);
         console.log("--- t5 ---\n" + res);
       });
 });

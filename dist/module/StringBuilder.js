@@ -1,4 +1,3 @@
-'use strict';
 /**
 Version 1.0.0 du 06/05/2019
 */

@@ -20,7 +20,7 @@ var getlength = function (structure) {
  */
 function isObject(obj) {
     return (typeof obj === "object" && obj !== null) || typeof obj === "function";
-};
+}
 
 
 const object1 = {
@@ -75,7 +75,7 @@ function listAllProperties(o) {
     }
 
     return result;
-};
+}
 
 
 var person = { fname: "John", lname: "Doe", age: 25 };
