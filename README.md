@@ -40,18 +40,15 @@ Now, i try to
 Release
 -----------------
 
-**07/03/2021**
+**13/03/2021**
 
 Release 0.5.0
-
-Improve quality code
-Refactor the project to build an npm package.
-
-**07/03/2021**
 
 Rename projet AST2DOT to astjstodot.
 
-Release 0.5.0
+Improve quality code
+
+**07/03/2021**
 
 Refactor the projet to build a npm package.
 
