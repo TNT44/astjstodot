@@ -6,13 +6,15 @@ var StringBuilder = require("./module/StringBuilder");
 Version 1.0.0 du 06/05/2019
 Version 1.0.1 du 07/03/2021
 Correction lié a eslint.
+Version 1.0.2 du 17/09/2021
+Ajout de test , coverage
 
 */
 
-function AstJsToDot() 
-{
-    this.version = '0.4.0';
-}
+//function AstJsToDot() 
+//{
+//    this.version = '0.4.0';
+//}
 
 /**
  * construit un graph.
@@ -20,7 +22,7 @@ function AstJsToDot()
  * @param {int} ntab - Nombre de tabulation.
  * @returns {String} resultat de la génération.
  */
- var generegraph = function (unfichierast, nbtab = 0) {
+ const generegraph = function (unfichierast, nbtab = 0) {
 
     var enreg = unfichierast;
     //console.log("entree", enreg);
@@ -30,16 +32,18 @@ function AstJsToDot()
 
         // verifie le strict.
         if (dash.has(enreg, "strict")) {
-            if (enreg.strict) {
+            
                 sb.append("strict ");
-            }
+
         }
 
-        // verifie sir graph ou digraph.
+        // verifie si graph ou digraph.
         if (enreg.type == "graph") {
             sb.append("graph");
         } else if (enreg.type == "digraph") {
             sb.append("digraph");
+        } else {
+            sb.append(enreg.type);
         }
         sb.append(" ");
 
@@ -58,6 +62,8 @@ function AstJsToDot()
             });
         }
         sb.append("}\n");
+    } else {
+        sb.append("Pas de generation");
     }
 
     return sb.toString();
@@ -339,7 +345,7 @@ var genidedge = function (element, fin = " ") {
                 return sb.toString();
 
             default:
-                sb.append("genidedge : inconnu");
+                sb.append("genidedge : je ne connais pas " + element.type);
                 break;
         }
     } else {
@@ -405,13 +411,15 @@ var genparenth = function (str, fin = " ") {
 };
 
 module.exports = {
-    AstJsToDot : AstJsToDot,
+    //AstJsToDot : AstJsToDot,
     genereattr: genereattr,
     genereattrstmt: genereattrstmt,
     genereedgestmt: genereedgestmt,
     generenodestmt: generenodestmt,
     generesubgraph: generesubgraph,
     generegraph: generegraph,
-    genidnumber: genidnumber
+    genidnumber: genidnumber,
+    genidedge : genidedge,
+    dispatch : dispatch
 };
     

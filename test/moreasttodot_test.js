@@ -6,6 +6,86 @@ var fixtures = require("./fixtures");
 
 describe('runTests', function () {
 
+    // --------------- generesubgraph --------------------
+
+    it('generesubgraph sans enfants', function (done) {
+
+        var entree = fixtures.subgraph;
+        delete entree.children; 
+
+        var res = AstJsToDot.generesubgraph(entree, 0);
+
+        console.log(res);
+
+        //assert.equal(res, 'graph [rankdir="LR"]\n');
+
+        assert.exists(res);
+
+        done();
+    });
+
+     // --------------- generegraph --------------------
+
+     it('generegraph sans type', function (done) {
+
+        var entree = fixtures.simple;
+        delete entree.type;
+
+        var res = AstJsToDot.generegraph(entree, 0);
+
+        assert.equal(res, 'Pas de generation');
+
+        done();
+    });
+
+    it('generegraph', function (done) {
+
+        var entree = fixtures.simple;
+
+        var res = AstJsToDot.generegraph(entree, 0);
+
+        //console.log(res);
+
+        //assert.equal(res, 'graph [rankdir="LR"]\n');
+
+        assert.exists(res);
+
+        done();
+    });
+
+    it('generegraph non digraph', function (done) {
+
+        var entree = fixtures.simple;
+        entree.type = "inconnu";
+
+        var res = AstJsToDot.generegraph(entree, 0);
+
+        console.log(res);
+
+        //assert.equal(res, 'graph [rankdir="LR"]\n');
+
+        assert.exists(res);
+
+        done();
+    });
+
+    it('generegraph sans enfants', function (done) {
+
+        var entree = fixtures.simple;
+        delete entree.children; 
+
+        var res = AstJsToDot.generegraph(entree, 0);
+
+        console.log(res);
+
+        //assert.equal(res, 'graph [rankdir="LR"]\n');
+
+        assert.exists(res);
+
+        done();
+    });
+
+
     // --------------- genereattrstmt --------------------
 
     it('genereattrstmt', function (done) {
@@ -248,6 +328,33 @@ describe('runTests', function () {
         done();
     });
 
+    it('genereattr nom html', function (done) {
+
+        var entree = fixtures.attr2;
+
+        var res = AstJsToDot.genereattr(entree, 0, "\n");
+
+        //console.log(res);
+
+        assert.equal(res, 'label="unvaleur" \n');
+
+        done();
+    });
+
+    it('genereattr inconnu', function (done) {
+
+        var entree = fixtures.attr;
+        entree.type =  "Inconnu";
+
+        var res = AstJsToDot.genereattr(entree, 0, "\n");
+
+        //console.log(res);
+
+        assert.equal(res, '');
+
+        done();
+    });
+
     it('genereattr sans type', function (done) {
 
         var entree = fixtures.attr;
@@ -277,6 +384,78 @@ describe('runTests', function () {
     });
 
 
-    // --------------- genereattr --------------------
+    // --------------- genidedge --------------------
+   
     
+    it('genidedge inconnu', function (done) {
+
+        var entree = fixtures.attr;
+        entree.type =  "Inconnu";
+
+        var res = AstJsToDot.genidedge(entree, 0);
+
+        //console.log(res);
+
+        assert.equal(res, 'genidedge : je ne connais pas Inconnu');
+
+        done();
+    });
+
+    it('genidedge sans type', function (done) {
+
+        var entree = fixtures.attr;
+        delete entree.type ;
+
+        var res = AstJsToDot.genidedge(entree, 0);
+
+        //console.log(res);
+
+        assert.equal(res, 'pas de type');
+
+        done();
+    });
+
+    // --------------- dispatch --------------------
+
+    it('dispatch inconnu', function (done) {
+
+        var entree = fixtures.attr;
+        entree.type =  "Inconnu";
+
+        var res = AstJsToDot.dispatch(entree, 0);
+
+        //console.log(res);
+
+        assert.equal(res, 'dispatch : Je ne connais pas : Inconnu.');
+
+        done();
+    });
+
+    it('dispatch inconnu avec tab', function (done) {
+
+        var entree = fixtures.attr;
+        entree.type =  "Inconnu";
+
+        var res = AstJsToDot.dispatch(entree, 2);
+
+        //console.log(res);
+
+        assert.equal(res, 'dispatch : Je ne connais pas : Inconnu.');
+
+        done();
+    });
+
+    it('dispatch inconnu sans tab', function (done) {
+
+        var entree = fixtures.attr;
+        entree.type =  "Inconnu";
+
+        var res = AstJsToDot.dispatch(entree);
+
+        //console.log(res);
+
+        assert.equal(res, 'dispatch : Je ne connais pas : Inconnu.');
+
+        done();
+    });
 });

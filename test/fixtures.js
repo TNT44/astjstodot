@@ -12,6 +12,61 @@ exports.attr = {
   "eq": "LR"
 };
 
+exports.attr2 = {
+  "type": "attr",
+  "id": "label",
+  "eq": {
+    "type": "id",
+    "value": "unvaleur",
+  }
+};
+
+exports.subgraph =     {
+  "type": "subgraph",
+  "id": "year4",
+  "children": [{
+      "type": "attr_stmt",
+      "target": "graph",
+      "attr_list": [{
+          "type": "attr",
+          "id": "label",
+          "eq": ""
+        },
+        {
+          "type": "attr",
+          "id": "labelloc",
+          "eq": ""
+        },
+        {
+          "type": "attr",
+          "id": "lp",
+          "eq": ""
+        },
+        {
+          "type": "attr",
+          "id": "bb",
+          "eq": ""
+        }
+      ]
+    },
+    {
+      "type": "attr_stmt",
+      "target": "node",
+      "attr_list": [{
+          "type": "attr",
+          "id": "style",
+          "eq": "rounded"
+        },
+        {
+          "type": "attr",
+          "id": "shape",
+          "eq": "box"
+        }
+      ]
+    }
+  ]
+};
+
 exports.attrstmt = {
   "type": "attr_stmt",
   "target": "graph",
