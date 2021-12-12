@@ -40,6 +40,9 @@ Now, i try to
 Release
 -----------------
 **12/12/2021**
+Release 0.5.3
+
+Clean the package.json
 
 Release 0.5.2
 
