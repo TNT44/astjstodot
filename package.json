@@ -1,6 +1,6 @@
 {
   "name": "astjstodot",
-  "version": "0.5.0",
+  "version": "0.5.2",
   "description": "convert an (graphviz) AST to a (graphviz) dot file.",
   "main": "src/AstJsToDot.js",
   "scripts": {
