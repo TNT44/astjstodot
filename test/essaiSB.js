@@ -42,6 +42,6 @@ var t0s = performance.now();
 for (var im = 300000; im > 0; im--) {
     sb.append("String concatenation. ");
 }
-str = sb.toString();
+var stres = sb.toString();
 var t1s = performance.now();
 console.log("Call to StringBuilder took " + (t1s - t0s) + " milliseconds.");

@@ -1,11 +1,11 @@
 //var StringBuilder = require('../src/moduleStringBuilder');
-var FctIo = require('./module/FctIo');
+//var FctIo = require('./module/FctIo');
 var AstJsToDot = require('../src/AstJsToDot');
-var fctarray = require('./module/fctArray');
+//var fctarray = require('./module/fctArray');
 
-var parse = require('dotparser');
-var DataObjectParser = require('dataobject-parser');
-var assert = require("chai").assert;
+//var parse = require('dotparser');
+//var DataObjectParser = require('dataobject-parser');
+//var assert = require("chai").assert;
 
 describe('test genération: ', function() {
 

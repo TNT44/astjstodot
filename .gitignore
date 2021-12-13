@@ -12,3 +12,4 @@ jspm_packages/
 travaux/
 .nyc_output/
 coverage/
+package-lock.json

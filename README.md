@@ -20,8 +20,10 @@ I take many representative .dot file.
 
 ![Process of test](./documentation/description3.png)
 
+Next :
 
-Now, i try to 
+I build a new package for the manipulation of AST.
+
 * add new function in the AST tree.
 
 ** remove a node
@@ -39,6 +41,12 @@ Now, i try to
 
 Release
 -----------------
+**13/12/2021**
+Release 0.5.4
+Work in progess
+Clean the test
+Clean the package.json
+
 **12/12/2021**
 Release 0.5.3
 
