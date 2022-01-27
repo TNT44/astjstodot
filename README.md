@@ -41,6 +41,9 @@ I build a new package for the manipulation of AST.
 
 Release
 -----------------
+**27/01/2022**
+Change dependencies
+
 **13/12/2021**
 Release 0.5.4
 Work in progess
